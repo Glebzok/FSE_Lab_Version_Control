@@ -14,7 +14,7 @@ def test_remove():
     except KeyError as e:
         pass
     else:
-        assert True == False, "Keyerror exception was not raised for invalid key"
+        raise AssertionError("KeyError exception was not raised for invalid key")
 
 def test_set():
     pass
