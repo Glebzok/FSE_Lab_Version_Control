@@ -4,7 +4,17 @@ def test_add():
     pass
 
 def test_remove():
-    pass
+    st = Storage({'a': 1})
+    key = 'a'
+    st.remove(key)
+    assert st.get(key) is None, "Key {} was not deleted".format(key)
+    key = 'b'
+    try:
+        st.remove(key)
+    except KeyError as e:
+        pass
+    else:
+        assert True == False, "Keyerror exception was not raised for invalid key"
 
 def test_set():
     pass
