@@ -16,8 +16,13 @@ class Storage:
         pass
 
     def set(self):
-        pass
+        if key in self.data:
+            self.data[key] = value
+        else:
+            raise KeyError ('Error: Unexisting Key')
+
     
+
     def add(self,key,value):
         if key not in self.data:
             self.data[key] = value
