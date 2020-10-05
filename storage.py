@@ -12,8 +12,11 @@ class Storage:
         else:
             return None
 
-    def remove(self):
-        pass
+    def remove(self, key):
+        if key in self.data:
+            del self.data[key]
+        else:
+            raise KeyError(key)
 
     def set(self):
         if key in self.data:
@@ -22,8 +25,7 @@ class Storage:
             raise KeyError ('Error: Unexisting Key')
 
     
-
-    def add(self,key,value):
+def add(self,key,value):
         if key not in self.data:
             self.data[key] = value
         else:
