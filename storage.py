@@ -19,7 +19,14 @@ class Storage:
             raise KeyError(key)
 
     def set(self):
-        pass
+        if key in self.data:
+            self.data[key] = value
+        else:
+            raise KeyError ('Error: Unexisting Key')
+
     
-    def add(self):
-        pass
+def add(self,key,value):
+        if key not in self.data:
+            self.data[key] = value
+        else:
+            raise KeyError("Such key exist")
