@@ -1,10 +1,23 @@
 from storage import Storage
 
+
 def test_add():
-    pass
+    st = Storage({})
+    key_1, value_1 = 'a', 1
+    st.add(key_1, value_1)
+    assert key_1 in st.data.keys(), "Pair not added"
+    assert st.data[key_1] == value_1, "Added wrong value"
+    try:
+        st.add(key_1, value_1)
+    except KeyError:
+        pass
+    else:
+        assert False, "Exeption about existing key not raised"
+
 
 def test_remove():
     pass
+
 
 def test_set():
     st = Storage({'a': 1, 'b': 2})
@@ -22,6 +35,7 @@ def test_set():
         assert True  == False, "Keyerror exception was not raised for invalid key"
 
 
+
 def test_get():
     st = Storage({'a': 1, 'b': 2})
     key = 'b'
@@ -31,11 +45,13 @@ def test_get():
     val = st.get(key)
     assert val is None, "Value for an unexisting key is not None"
 
+
 def run_tests():
     test_add()
     test_remove()
     test_set()
     test_get()
+
 
 if __name__ == "__main__":
     run_tests()
